@@ -14,10 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from re import DEBUG
+
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from debug_toolbar.toolbar import debug_toolbar_urls
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -26,5 +28,6 @@ urlpatterns = [
     path('catalog/', include('goods.urls', namespace='catalog')),
 ]
 
-if DEBUG:
+if settings.DEBUG:
     urlpatterns += debug_toolbar_urls()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
