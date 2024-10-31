@@ -49,7 +49,7 @@ class Products(models.Model):
     def display_id(self):
         return f"{self.id:05}"
 
-    def self_price(self):
+    def sell_price(self):
         if self.discount:
             return round(self.price - (self.price * self.discount) / 100, 2)
         return self.price
