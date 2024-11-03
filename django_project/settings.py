@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # LOCAL
     "main",
     "goods",
+    "users",
     # 3RD PARTY
     "django_extensions",
     "debug_toolbar",
@@ -64,7 +65,7 @@ ROOT_URLCONF = "django_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
