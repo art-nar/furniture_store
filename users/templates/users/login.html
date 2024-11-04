@@ -24,7 +24,7 @@
                         required>
                     </div>
 
-                    
+                    <!--Option 1 for form-->
                     {% comment %} {% for item in form %}
                         <div class="mb-3">
                             <label for="{{ item.id_for_label }}" class="form-label">{{ item.label }}</label>
@@ -33,15 +33,27 @@
                     {% endfor %} {% endcomment %}
 
 
-
+                    <!--Option 2 for form-->
                     {% comment %} <div class="mb-3">
-                        <label for="username" class="form-label">Имя пользователя</label>
-                        <input type="text" class="form-control" id="username" placeholder="Введите ваше имя пользователя" required>
+                        <label for="{{ form.username.if_for_label }}">Имя пользователя</label>
+                        {{ form.username }}
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Пароль</label>
-                        <input type="password" class="form-control" id="password" placeholder="Введите ваш пароль" required>
+                        {{ form.password }}
                     </div> {% endcomment %}
+
+                    <!--Option 3 for form-->
+                    {% comment %} <div class="mb-3">
+                        <label for="username" class="form-label">Имя пользователя</label>
+                        <input type="text" class="form-control" id="username" placeholder="Введите ваше имя пользователя">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Пароль</label>
+                        <input type="text" class="form-control" id="password" placeholder="Введите ваш пароль">
+                    </div> {% endcomment %}
+
+
                     <button type="submit" class="btn btn-dark btn-block">Войти</button>
                 </form>
                 <div class="mt-3">
