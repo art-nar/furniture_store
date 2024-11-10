@@ -19,8 +19,8 @@ def login(request):
                 auth.login(request, user)
                 messages.success(request, f"{username}, Вы вошли в аккаунт!")
 
-                if request.POST.get('next', None):
-                    return HttpResponseRedirect(request.POST.get('next'))
+                if request.POST.get("next", None):
+                    return HttpResponseRedirect(request.POST.get("next"))
     else:
         form = UserLoginForm()
     context = {"title": "Home - Авторизация", "form": form}
@@ -34,7 +34,10 @@ def registration(request):
             form.save()
             user = form.instance
             auth.login(request, user)
-            messages.success(request, f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт")
+            messages.success(
+                request,
+                f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт",
+            )
             return HttpResponseRedirect(reverse("main:index"))
     else:
         form = UserRegistrationForm()
@@ -58,6 +61,10 @@ def profile(request):
 
     context = {"title": "Home - Кабинет", "form": form}
     return render(request, "users/profile.html", context)
+
+
+def users_cart(request):
+    return render(request, "users/users_cart.html")
 
 
 @login_required

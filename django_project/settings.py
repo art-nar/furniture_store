@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "main",
     "goods",
     "users",
+    "carts",
     # 3RD PARTY
     "django_extensions",
     "debug_toolbar",
@@ -154,4 +155,4 @@ INTERNAL_IPS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "users.user"
-LOGIN_URL = '/user/login/'
+LOGIN_URL = "/user/login/"
