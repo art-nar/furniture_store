@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from carts.models import Cart
+
+# admin.site.register(Cart)
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    list_display = ('user', 'product', 'quantity', 'created_timestamp')
+    readonly_fields = ('created_timestamp',)
