@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "goods",
     "users",
     "carts",
+    "orders",
     # 3RD PARTY
     "django_extensions",
     "debug_toolbar",
