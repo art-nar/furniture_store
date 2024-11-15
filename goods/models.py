@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Categories(models.Model):
@@ -42,10 +43,13 @@ class Products(models.Model):
         db_table = "product"
         verbose_name = "product"
         verbose_name_plural = "products"
-        ordering = ('id',)
+        ordering = ("id",)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("catalog:product", kwargs={"product_slug": self.slug})
 
     def display_id(self):
         return f"{self.id:05}"
