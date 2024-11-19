@@ -21,6 +21,7 @@ class ProductsAdmin(admin.ModelAdmin):
         "quantity",
         "price",
         "discount",
+        "category"
     ]
     list_editable = [
         "discount",
